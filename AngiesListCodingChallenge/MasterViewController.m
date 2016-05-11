@@ -18,11 +18,19 @@ const NSInteger tagRecentReviews = 201;
 const NSInteger tagServiceProvider = 202;
 const NSInteger tagLocation = 203;
 
+typedef NS_ENUM(NSInteger, SortStyle)
+{
+    SortByName,
+    SortByReviewCount,
+    SortByGrade,
+};
+
 @interface MasterViewController ()
 
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(nonatomic, weak) IBOutlet UIActivityIndicatorView *activityView;
 @property(nonatomic, strong) NSArray *serviceProviders;
+@property(nonatomic, assign) SortStyle sortStyle;
 
 @end
 
@@ -32,6 +40,9 @@ const NSInteger tagLocation = 203;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // default sort style
+    self.sortStyle = SortByName;
+    
     [self getServiceProviders];
 }
 
@@ -40,6 +51,47 @@ const NSInteger tagLocation = 203;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
+
+-(IBAction)searchAction:(UIBarButtonItem  *)sender
+{
+    UIAlertControllerStyle style = UIAlertControllerStyleActionSheet;
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Sort Service Providers" message:nil preferredStyle:style];
+
+    UIAlertAction* nameAction = [UIAlertAction actionWithTitle:@"Sort by name" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+                                                           self.sortStyle = SortByName;
+                                                           self.serviceProviders = [self sortProviders:self.serviceProviders];
+                                                           [self.tableView reloadData];
+                                                       }];
+    [controller addAction:nameAction];
+    UIAlertAction* reviewCountAction = [UIAlertAction actionWithTitle:@"Sort by reviewCount" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+                                                           self.sortStyle = SortByReviewCount;
+                                                           self.serviceProviders = [self sortProviders:self.serviceProviders];
+                                                           [self.tableView reloadData];
+                                                       }];
+    [controller addAction:reviewCountAction];
+    UIAlertAction* gradeAction = [UIAlertAction actionWithTitle:@"Sort by grade" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+                                                           self.sortStyle = SortByGrade;
+                                                           self.serviceProviders = [self sortProviders:self.serviceProviders];
+                                                           [self.tableView reloadData];
+                                                       }];
+    [controller addAction:gradeAction];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                         }];
+    [controller addAction:cancelAction];
+    
+    // Required for iPad
+    controller.popoverPresentationController.barButtonItem = sender;
+    controller.popoverPresentationController.sourceView = self.view;
+    
+    [self presentViewController:controller animated:YES completion:nil];
+    
+    
+}
 #pragma mark - Service Call 
 
 -(void)getServiceProviders
@@ -55,16 +107,37 @@ const NSInteger tagLocation = 203;
             }
             else
             {
-                // initial sort by name
-                NSArray *sortedByName = [providers sortedArrayUsingComparator:^NSComparisonResult(Provider *obj1, Provider *obj2) {
-                    return [obj1.name compare:obj2.name];
-                }];
-                
-                self.serviceProviders = sortedByName;
+                self.serviceProviders = [self sortProviders:providers];
                 [self.tableView reloadData];
             }
         });
     }];
+}
+
+#pragma mark - Sorting
+
+-(NSArray *)sortProviders:(NSArray *)providers
+{
+    NSArray * sorted = providers;
+    switch (self.sortStyle)
+    {
+        case SortByName:
+            sorted = [providers sortedArrayUsingComparator:^NSComparisonResult(Provider *obj1, Provider *obj2) {
+                return [obj1.name compare:obj2.name];
+            }];
+            break;
+        case SortByReviewCount:
+            sorted = [providers sortedArrayUsingComparator:^NSComparisonResult(Provider *obj1, Provider *obj2) {
+                return obj1.reviewCount < obj2.reviewCount;
+            }];
+            break;
+        case SortByGrade:
+            sorted = [providers sortedArrayUsingComparator:^NSComparisonResult(Provider *obj1, Provider *obj2) {
+                return [obj1.overallGrade compare:obj2.overallGrade];
+            }];
+            break;
+    }
+    return sorted;
 }
 
 #pragma mark - UITableViewDataSource
@@ -104,7 +177,7 @@ const NSInteger tagLocation = 203;
     if ([view isKindOfClass:[UILabel class]])
     {
         UILabel *label = (UILabel *)view;
-        label.text = [NSString stringWithFormat:@"%ld Recent Review%@", provider.reviewCount, provider.reviewCount==1?@"":@"s"];
+        label.text = [NSString stringWithFormat:@"%ld Recent Review%@", (long)provider.reviewCount, provider.reviewCount==1?@"":@"s"];
     }
     
     // Service provider name

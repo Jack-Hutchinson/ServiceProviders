@@ -19,6 +19,8 @@ import MapKit
     let reviewCount : Int
     let overallGrade : String
     
+    // MARK - MKAnnotation protocol
+    
     var coordinate: CLLocationCoordinate2D {
         return self.coordinates.coordinate
     }

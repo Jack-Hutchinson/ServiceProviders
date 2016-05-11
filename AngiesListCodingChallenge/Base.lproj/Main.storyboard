@@ -110,7 +110,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Serviceproviders" id="ec9-8b-0cC">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" id="B7x-jq-ix0"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="B7x-jq-ix0">
+                            <connections>
+                                <action selector="searchAction:" destination="BYZ-38-t0r" id="kIQ-m5-ecx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityView" destination="oHU-N6-It1" id="kDP-nO-XGj"/>

@@ -31,11 +31,12 @@ class DetailViewController: UIViewController, MKMapViewDelegate
         self.providerReviewCountLabel.text = "Reviews: \(provider.reviewCount)"
         self.providerGradeLabel.text = "Grade: \(provider.overallGrade)"
         
-        // initialize the map
-        let span = MKCoordinateSpanMake(0.01, 0.01)
+        // initialize the map with provider
+        let span = MKCoordinateSpanMake(0.01, 0.01) // relatively small area
         let center = CLLocationCoordinate2DMake(self.provider.coordinates.coordinate.latitude, self.provider.coordinates.coordinate.longitude)
         let region = MKCoordinateRegionMake(center, span)
         self.mapView.setRegion(region, animated: false)
+        
         self.mapView.addAnnotation(self.provider)
     }
 
@@ -44,58 +45,5 @@ class DetailViewController: UIViewController, MKMapViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
-
-    // MARK: - MKMapViewDelegate
-    
-    func mapViewWillStartLocatingUser(mapView: MKMapView)
-    {
-    }
-    
-    func mapViewDidStopLocatingUser(mapView: MKMapView)
-    {
-        
-    }
-    
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
-    {
-    }
-    
-    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError)
-    {
-    }
-    
-    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool)
-    {
-    }
-    
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool)
-    {
-    }
-    
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
-    {
-        if annotation.dynamicType == MKUserLocation.self
-        {
-            return nil
-        }
-        else
-        {
-        }
-        return nil
-    }
-    
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
-    {
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
