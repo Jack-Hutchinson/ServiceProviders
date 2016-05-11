@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4915D0651CE36E0200B9C978 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4915D0641CE36E0200B9C978 /* MapKit.framework */; };
 		49C861EF1CE25159009CE943 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C861EE1CE25159009CE943 /* main.m */; };
 		49C861F21CE25159009CE943 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C861F11CE25159009CE943 /* AppDelegate.m */; };
-		49C861F51CE25159009CE943 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C861F41CE25159009CE943 /* ViewController.m */; };
+		49C861F51CE25159009CE943 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C861F41CE25159009CE943 /* MasterViewController.m */; };
 		49C861F81CE25159009CE943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C861F61CE25159009CE943 /* Main.storyboard */; };
 		49C861FA1CE25159009CE943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C861F91CE25159009CE943 /* Assets.xcassets */; };
 		49C861FD1CE25159009CE943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C861FB1CE25159009CE943 /* LaunchScreen.storyboard */; };
 		49C862081CE2515A009CE943 /* AngiesListCodingChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C862071CE2515A009CE943 /* AngiesListCodingChallengeTests.m */; };
 		49C862131CE2515A009CE943 /* AngiesListCodingChallengeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C862121CE2515A009CE943 /* AngiesListCodingChallengeUITests.m */; };
+		49C862231CE25E26009CE943 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C862221CE25E26009CE943 /* DetailViewController.swift */; };
+		49C862261CE26129009CE943 /* ServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C862251CE26129009CE943 /* ServiceCall.swift */; };
+		49FD257A1CE28B86004285CC /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD25791CE28B86004285CC /* UIImage+Extensions.swift */; };
+		49FD257C1CE29CEF004285CC /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD257B1CE29CEF004285CC /* Provider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4915D0641CE36E0200B9C978 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		49C861EA1CE25159009CE943 /* AngiesListCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngiesListCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C861EE1CE25159009CE943 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49C861F01CE25159009CE943 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C861F11CE25159009CE943 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		49C861F31CE25159009CE943 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		49C861F41CE25159009CE943 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		49C861F31CE25159009CE943 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		49C861F41CE25159009CE943 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		49C861F71CE25159009CE943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49C861F91CE25159009CE943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49C861FC1CE25159009CE943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,11 @@
 		49C8620E1CE2515A009CE943 /* AngiesListCodingChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AngiesListCodingChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C862121CE2515A009CE943 /* AngiesListCodingChallengeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AngiesListCodingChallengeUITests.m; sourceTree = "<group>"; };
 		49C862141CE2515A009CE943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49C862211CE25E26009CE943 /* AngiesListCodingChallenge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AngiesListCodingChallenge-Bridging-Header.h"; sourceTree = "<group>"; };
+		49C862221CE25E26009CE943 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		49C862251CE26129009CE943 /* ServiceCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCall.swift; sourceTree = "<group>"; };
+		49FD25791CE28B86004285CC /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		49FD257B1CE29CEF004285CC /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4915D0651CE36E0200B9C978 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +93,7 @@
 		49C861E11CE25159009CE943 = {
 			isa = PBXGroup;
 			children = (
+				4915D0641CE36E0200B9C978 /* MapKit.framework */,
 				49C861EC1CE25159009CE943 /* AngiesListCodingChallenge */,
 				49C862061CE2515A009CE943 /* AngiesListCodingChallengeTests */,
 				49C862111CE2515A009CE943 /* AngiesListCodingChallengeUITests */,
@@ -103,10 +116,13 @@
 			children = (
 				49C861F01CE25159009CE943 /* AppDelegate.h */,
 				49C861F11CE25159009CE943 /* AppDelegate.m */,
-				49C861F31CE25159009CE943 /* ViewController.h */,
-				49C861F41CE25159009CE943 /* ViewController.m */,
 				49C861F61CE25159009CE943 /* Main.storyboard */,
+				49C862201CE251CC009CE943 /* View Controllers */,
+				49FD257D1CE2A7F6004285CC /* Data Models */,
+				49C862241CE260FA009CE943 /* Service Call */,
+				49FD25781CE28B49004285CC /* Extensions */,
 				49C861F91CE25159009CE943 /* Assets.xcassets */,
+				49C862211CE25E26009CE943 /* AngiesListCodingChallenge-Bridging-Header.h */,
 				49C861FB1CE25159009CE943 /* LaunchScreen.storyboard */,
 				49C861FE1CE25159009CE943 /* Info.plist */,
 				49C861ED1CE25159009CE943 /* Supporting Files */,
@@ -138,6 +154,40 @@
 				49C862141CE2515A009CE943 /* Info.plist */,
 			);
 			path = AngiesListCodingChallengeUITests;
+			sourceTree = "<group>";
+		};
+		49C862201CE251CC009CE943 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				49C861F31CE25159009CE943 /* MasterViewController.h */,
+				49C861F41CE25159009CE943 /* MasterViewController.m */,
+				49C862221CE25E26009CE943 /* DetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		49C862241CE260FA009CE943 /* Service Call */ = {
+			isa = PBXGroup;
+			children = (
+				49C862251CE26129009CE943 /* ServiceCall.swift */,
+			);
+			name = "Service Call";
+			sourceTree = "<group>";
+		};
+		49FD25781CE28B49004285CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				49FD25791CE28B86004285CC /* UIImage+Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		49FD257D1CE2A7F6004285CC /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				49FD257B1CE29CEF004285CC /* Provider.swift */,
+			);
+			name = "Data Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +320,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C861F51CE25159009CE943 /* ViewController.m in Sources */,
+				49C861F51CE25159009CE943 /* MasterViewController.m in Sources */,
 				49C861F21CE25159009CE943 /* AppDelegate.m in Sources */,
+				49FD257C1CE29CEF004285CC /* Provider.swift in Sources */,
+				49C862261CE26129009CE943 /* ServiceCall.swift in Sources */,
+				49FD257A1CE28B86004285CC /* UIImage+Extensions.swift in Sources */,
 				49C861EF1CE25159009CE943 /* main.m in Sources */,
+				49C862231CE25E26009CE943 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,10 +469,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = AngiesListCodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HA.AngiesListCodingChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AngiesListCodingChallenge/AngiesListCodingChallenge-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -426,10 +484,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = AngiesListCodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HA.AngiesListCodingChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AngiesListCodingChallenge/AngiesListCodingChallenge-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -498,6 +559,7 @@
 				49C862191CE2515A009CE943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49C8621A1CE2515A009CE943 /* Build configuration list for PBXNativeTarget "AngiesListCodingChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +568,7 @@
 				49C8621C1CE2515A009CE943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49C8621D1CE2515A009CE943 /* Build configuration list for PBXNativeTarget "AngiesListCodingChallengeUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +577,7 @@
 				49C8621F1CE2515A009CE943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
